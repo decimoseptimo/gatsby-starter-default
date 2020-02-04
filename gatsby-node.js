@@ -35,8 +35,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const products = result.data.products.edges
-  const the_categories = result.data.categories.edges
-  const categories = the_categories.map(i => i.node)
+  const categories = result.data.categories.edges
+
+  console.log("products: " + products.length)
+  console.log("categories: " + categories.length)
 
   products.forEach(({ node }) => {
     createPage({
