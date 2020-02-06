@@ -11,7 +11,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       products: allProductsJson {
         edges {
           node {
-            id
+            product_id
             slug
             parent_id
           }
@@ -20,7 +20,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       categories: allCategoriesJson {
         edges {
           node {
-            id
+            category_id
             name
             parent_id
           }
@@ -47,7 +47,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
-        id: node.id,
+        product_id: node.product_id,
       },
     })
   })

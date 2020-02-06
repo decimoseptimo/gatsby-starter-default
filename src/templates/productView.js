@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import SEO from "../components/seo"
 
 const ProductView = props => {
-  const { id, title, images } = props.data.productsJson
+  const { product_id, title, images } = props.data.productsJson
 
   return (
     <>
@@ -13,7 +13,7 @@ const ProductView = props => {
       <Img
         fluid={images[0].childImageSharp.fluid}
         alt={title}
-        key={id}
+        key={product_id}
       />
       {title}
     </>
@@ -24,9 +24,9 @@ const ProductView = props => {
 export default ProductView
 
 export const query = graphql`
-  query($id: String!) {
-    productsJson(id: { eq: $id }) {
-      id
+  query($product_id: String!) {
+    productsJson(product_id: { eq: $product_id }) {
+      product_id
       title
       price
       unit
